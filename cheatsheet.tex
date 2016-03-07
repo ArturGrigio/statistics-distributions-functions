@@ -1,45 +1,106 @@
 % Preemble
 % ---
 
-\documentclass{article}
+\documentclass[10pt]{extarticle}
 
 % Packages
 % ---
 
 \usepackage{amsmath}
+\usepackage[margin=0.05in]{geometry}
 
 \begin{document}
 \section{Distributions}
 
-\subsection{Bernoulli}
+\begin{center}
+    \begin{tabular}{ | l || l | l | l | l || l | l | l | }
+    \hline
+    Distribution & Bernoulli & Binomial & Geometric & Poisson & Exponential & Uniform & Normal \\ \hline
 
-$f(x)=\theta^x(1-\theta)^{1-x}$\\
-$\mathrm{E[X]}=\theta$\\
-$\mathrm{VAR[X]}=\theta(1-\theta)$
+    PDF & $\theta^x(1-\theta)^{1-x}$ 
+        & $\binom{n}{k}\theta^k(1-\theta)^{n-k}$
+        & $(1-\theta)^{x-1}\theta$ 
+        & $\mathrm{e}^{-\lambda}\frac{\lambda^x}{x!}$
+        & $\frac{1}{\lambda}\mathrm{e}^{\frac{-x}{\lambda}}$ 
+        & $\frac{1}{b-a}$ 
+        & $\frac{1}{\sqrt{2\pi\sigma^2}}\mathrm{e}^{\frac{-(x-\mu)^2}{2\sigma^2}}$ \\ \hline
 
-\subsection{Binomial}
+    $\mathrm{E[X]}$ & $\theta$ 
+                    & $n\theta$ 
+                    & $\frac{1}{\theta}$ 
+                    & $\lambda$ 
+                    & $\lambda$ 
+                    & $\frac{a+b}{2}$
+                    & $\mu$ \\ \hline
 
-$f(x)=\binom{n}{k}\theta^k(1-\theta)^{n-k}$\\
-$\mathrm{E[X]}=n\theta$\\
-$\mathrm{VAR[X]}=n\theta(1-\theta)$
+    $\mathrm{Var[X]}$ & $\theta(1-\theta)$
+                      & $n\theta(1-\theta)$
+                      & $\frac{1-\theta}{\theta^2}$ 
+                      & $\lambda$
+                      & $\lambda^2$
+                      & $\frac{(b-a)^2}{12}$
+                      & $\sigma^2$ \\ \hline
+    \end{tabular}
+\end{center}
 
-\subsection{Poisson}
-$f(x)=\mathrm{e}^{-\lambda}\frac{\lambda^x}{x!}$\\
-$\mathrm{E[X]}=\lambda$\\
-$\mathrm{VAR[X]}=\lambda$
-
-\subsection{Exponential}
-$f(x)=\frac{1}{\lambda}\mathrm{e}^{\frac{-x}{\lambda}}$\\
-$\mathrm{F(x)}=1-\mathrm{e}^{\frac{-x}{\lambda}}$\\
-$\mathrm{E[X]}=\lambda$\\
-$\mathrm{VAR[X]}=\lambda^2$
-
-\subsection{Normal}
-$f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\mathrm{e}^{\frac{-(x-\mu)^2}{2\sigma^2}}$\\
-$\mathrm{E[X]}=\mu$\\
-$\mathrm{VAR[X]}=\sigma^2$
 
 \section{Hypothesis Testing}
+
+\begin{center}
+    \begin{tabular}{ | l | l | l | l | }
+        \hline
+        $\mathrm{H}_0$ & $\mathrm{H}_A$ & Test Statistic & Rejection Region \\ \hline
+
+        & $\mu_1<\mu_2$ 
+        & 
+        & $\mathrm{Z}<-\mathrm{z}_\alpha$ \\
+         
+        $\mu_1=\mu_2$ 
+        & $\mu_1>\mu_2$ 
+        & $\mathrm{Z}=\frac{(X_1-X_2)-(\mu_1-\mu_2)}{\sqrt{\sigma_1^{2}/n_1+\sigma_2^{2}/n_2}}$ 
+        & $\mathrm{Z}>\mathrm{z}_\alpha$ \\
+
+        & $\mu_1\ne\mu_2$
+        & (known $\sigma$)
+        & $\mathrm{|Z|}>\mathrm{|z_{\alpha/2}|}$ \\ \hline\hline
+
+        & $\mu_1<\mu_2$ 
+        & 
+        & $\mathrm{t}<-\mathrm{t}_\alpha$ \\
+         
+        $\mu_1=\mu_2$ 
+        & $\mu_1>\mu_2$ 
+        & $\mathrm{t}=\frac{(X_1-X_2)-(\mu_1-\mu_2)}{\sqrt{s_1^{2}/n_1+s_2^{2}/n_2}}$ 
+        & $\mathrm{t}>\mathrm{t}_\alpha$ \\
+
+        & $\mu_1\ne\mu_2$
+        & (unknown $\sigma$)
+        & $\mathrm{|t|}>\mathrm{|t_{n-1,\alpha/2}|}$ \\ \hline\hline
+
+        & $\pi_1<\pi_2$ 
+        & 
+        & $\mathrm{Z}<-\mathrm{z}_\alpha$ \\
+         
+        $\pi_1=\pi_2$ 
+        & $\pi_1>\pi_2$ 
+        &
+        $\mathrm{Z}=\frac{(\hat{\pi}_1-\hat{\pi}_2)-(\pi_1-\pi_2)}{\sqrt{\frac{\pi_{1}(1-\pi_1)}{n_1}+\frac{\pi_{2}(1-\pi_2)}{n_2}}}$ 
+        & $\mathrm{Z}>\mathrm{z}_\alpha$ \\
+
+        & $\pi_1\ne\pi_2$
+        & 
+        & $\mathrm{|Z|}>\mathrm{|z_{\alpha/2}|}$ \\ \hline
+
+
+
+
+
+
+
+
+    \end{tabular}
+\end{center}
+
 
 \end{document}
 
