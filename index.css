@@ -1,0 +1,11 @@
+div.box {
+  border: 1px solid black;
+  padding:3px;
+  margin:2px;
+  display:inline-block;
+  text-align: center;
+}
+
+span.bar {
+  text-decoration: overline;
+}
