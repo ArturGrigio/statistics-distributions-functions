@@ -63,16 +63,23 @@
     3) State Conclusion (ex: Fail to Regect)
 </div>
 
-<!-- Hypothesis T-->
-<div style="border: 1px solid black; padding:3px; margin:2px; display:inline-block; text-align: center;">
-    <strong>HYPOTHESIS (&sigma; unknown)</strong><br>
-    1) Hypothesis (ex: H<sub>0</sub>: &mu;<sub>1</sub>=&mu;<sub>2</sub>)<br>
-    2-a) T<sub>Test Statistic</sub> = <sup>(<span style="text-decoration: overline">X<sub>1</sub></span>-<span style="text-decoration: overline">X<sub>2</sub></span>)</sup>/<sub>S<sub>p</sub>*&radic;(<sup>1</sup>/<sub>n<sub>1</sub></sub>+<sup>1</sup>/<sub>n<sub>2</sub></sub>)</sub><br>
-    2-b) S<sup>2</sup>=<sup>1</sup>/<sub>n-1</sub>*&Sigma;(X<sub>i</sub>-<span style="text-decoration: overline">X</span>)<sup>2</sup><br>
-    2-c) S<sup>2</sup><sub>pool</sub>=<sup>(n<sub>1</sub>-1)*S<sup>2</sup><sub>1</sub>+(n<sub>2</sub>-1)*S<sup>2</sup><sub>2</sub>/<sub>(n<sub>1</sub>-1)+(n<sub>2</sub>-1)</sub></sup><br>
-    3) Degrees of Freedom = (n<sub>1</sub>+n<sub>2</sub>-2)<br>
-    4) State Conclusion (ex: Regect)
-</div>
+  <!-- Hypothesis T-->
+  <div class="box">
+      <strong>HYPOTHESIS (&sigma; unknown)</strong><br>
+      1) Hypothesis (ex: H<sub>0</sub>: &mu;<sub>1</sub>=&mu;<sub>2</sub>)<br>
+      2-a) T<sub>Test Statistic</sub> = <sup>(<span class="bar">X</span><sub>1</sub>-<span class="bar">X</span><sub>2</sub>)</sup>/<sub>S<sub>p</sub>*&radic;(<sup>1</sup>/<sub>n<sub>1</sub></sub>+<sup>1</sup>/<sub>n<sub>2</sub></sub>)</sub><br>
+      2-b) S<sup>2</sup>=<sup>1</sup>/<sub>n-1</sub>*&Sigma;(X<sub>i</sub>-<span class="bar">X</span>)<sup>2</sup><br>
+      2-c) S<sup>2</sup><sub>pool</sub>=<sup>(n<sub>1</sub>-1)*S<sup>2</sup><sub>1</sub>+(n<sub>2</sub>-1)*S<sup>2</sup><sub>2</sub>/<sub>(n<sub>1</sub>-1)+(n<sub>2</sub>-1)</sub></sup><br>
+      3) Degrees of Freedom = (n<sub>1</sub>+n<sub>2</sub>-2)<br>
+      4) State Conclusion (ex: Regect)
+  </div>
+
+  <div class="box">
+      <strong>HYPOTHESIS (between population proportions)</strong><br>
+      1) Hypothesis (ex: H<sub>0</sub>: &pi;<sub>1</sub>=&pi;<sub>2</sub>)<br>
+      2) Z<sub>Test Statistic</sub> = <sup>(<span class="bar">&pi;</span><sub>1</sub>-<span class="bar">&pi;</span><sub>2</sub>)</sup>/&radic;((<sup>&pi;<sub>1</sub><sub>*(1-&pi;<sub>1</sub>)</sub></sup>/<sub>n<sub>1</sub></sub>)+(<sup>&pi;<sub>2</sub><sub>*(1-&pi;<sub>2</sub>)</sub></sup>/<sub>n<sub>2</sub></sub>))<br>
+      3) State Conclusion (ex: Fail to Regect)
+  </div>
 
 <!-- Linear Regression-->
 <div style="border: 1px solid black; padding:3px; margin:2px; display:inline-block; text-align: center;">
