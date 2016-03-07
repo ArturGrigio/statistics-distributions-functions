@@ -1,0 +1,45 @@
+% Preemble
+% ---
+
+\documentclass{article}
+
+% Packages
+% ---
+
+\usepackage{amsmath}
+
+\begin{document}
+\section{Distributions}
+
+\subsection{Bernoulli}
+
+$f(x)=\theta^x(1-\theta)^{1-x}$\\
+$\mathrm{E[X]}=\theta$\\
+$\mathrm{VAR[X]}=\theta(1-\theta)$
+
+\subsection{Binomial}
+
+$f(x)=\binom{n}{k}\theta^k(1-\theta)^{n-k}$\\
+$\mathrm{E[X]}=n\theta$\\
+$\mathrm{VAR[X]}=\theta(1-\theta)$
+
+\subsection{Poisson}
+$f(x)=\mathrm{e}^{-\lambda}\frac{\lambda^x}{x!}$\\
+$\mathrm{E[X]}=\lambda$\\
+$\mathrm{VAR[X]}=\lambda$
+
+\subsection{Exponential}
+$f(x)=\frac{1}{\lambda}\mathrm{e}^{\frac{-x}{\lambda}}$\\
+$\mathrm{F(x)}=1-\mathrm{e}^{\frac{-x}{\lambda}}$\\
+$\mathrm{E[X]}=\lambda$\\
+$\mathrm{VAR[X]}=\lambda^2$
+
+\subsection{Normal}
+$f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\mathrm{e}^{\frac{-(x-\mu)^2}{2\sigma^2}}$\\
+$\mathrm{E[X]}=\mu$\\
+$\mathrm{VAR[X]}=\sigma^2$
+
+\section{Hypothesis Testing}
+
+\end{document}
+
