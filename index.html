@@ -1,13 +1,23 @@
-<!-- Bernuli -->
-<div style="border: 1px solid black; padding:3px; margin:2px; display:inline-block; text-align: center;">
-    <strong>BERNULI</strong><br>
+<style>
+.block{
+	border: 1px solid black; 
+	padding:3px; 
+	margin:2px; 
+	display:inline-block; 
+	text-align: center;
+}
+</style>
+
+<!-- Bernoulli -->
+<div class="block">
+    <strong>BERNOULLI</strong><br>
     PMF: f(x) = &pi;<sup>x</sup>*(1-&pi;)<sup>(1-x)</sup><br>
     E(X) = &pi;<br>
     VAR(X) = <sup>&pi;(1-&pi;)</sup>/<sub>n</sub>
 </div>
 
 <!-- Binomial -->
-<div style="border: 1px solid black; padding:3px; margin:2px; display:inline-block; text-align: center;">
+<div class="block">
     <strong>BINOMIAL</strong><br>
     PMF: f(x) = (<sup>n</sup><sub>x</sub>)&theta;<sup>x</sup>*(1-&theta;)<sup>(n-x)</sup><br>
     E(X) = np<br>
@@ -16,7 +26,7 @@
 </div>
 
 <!-- Poisson -->
-<div style="border: 1px solid black; padding:3px; margin:2px; display:inline-block; text-align: center;">
+<div class="block">
     <strong>POISSON</strong><br>
     PDF: f(x) = <span><sup>e<sup>-&lambda;</sup>*&lambda;<sup>x</sup></sup>/<sub>x!</sub><br>
     E(X) = &lambda;<br>
@@ -24,7 +34,7 @@
 </div>
 
 <!-- Exponential -->
-<div style="border: 1px solid black; padding:3px; margin:2px; display:inline-block; text-align: center;">
+<div class="block">
     <strong>EXPONENTIAL</strong><br>
     PDF: f(x) = <sup>1</sup>/<sub>&lambda;</sub> * e<sup>-<sup>x</sup>/<sub>&lambda;</sub></sup><br>
     E(X) = &mu;<br>
@@ -32,7 +42,7 @@
 </div>
 
 <!-- Guassian -->
-<div style="border: 1px solid black; padding:3px; margin:2px; display:inline-block; text-align: center;">
+<div class="block">
     <strong>GUASSIAN (normal)</strong><br>
     PDF: f(x) = <sup>1</sup>/<sub>&radic;<span style="text-decoration: overline">2&pi;&sigma;<sup>2</sup></span></sub> * e<sup>-<sup>(x-&mu;)<sup>2</sup></sup>/<sub>2*&sigma;<sup>2</sup></sub></sup><br>
     E(X) = &mu;<br>
@@ -40,7 +50,7 @@
 </div>
 
 <!-- Uniform -->
-<div style="border: 1px solid black; padding:3px; margin:2px; display:inline-block; text-align: center;">
+<div class="block">
     <strong>UNIFORM</strong><br>
     PDF: f(x) = <sup>1</sup>/<sub>b-a</sub><br>
     E(X) = <sup>b+a</sup>/<sub>2</sub><br>
@@ -48,7 +58,7 @@
 </div>
 
 <!-- Hypothesis Z -->
-<div style="border: 1px solid black; padding:3px; margin:2px; display:inline-block; text-align: center;">
+<div class="block">
     <strong>HYPOTHESIS (&sigma; known)</strong><br>
     1) Hypothesis (ex: H<sub>0</sub>: &mu;<sub>1</sub>=&mu;<sub>2</sub>)<br>
     2) Z<sub>Test Statistic</sub> = <sup>(<span style="text-decoration: overline">X<sub>1</sub></span>-<span style="text-decoration: overline">X<sub>2</sub></span>)</sup>/<sub>&radic;(<sup>&sigma;<sup>2</sup><sub>1</sub></sup>/<sub>n<sub>1</sub></sub>+<sup>&sigma;<sup>2</sup><sub>2</sub></sup>/<sub>n<sub>1</sub></sub>)</sub><br>
@@ -56,7 +66,7 @@
 </div>
 
 <!-- Hypothesis T-->
-<div style="border: 1px solid black; padding:3px; margin:2px; display:inline-block; text-align: center;">
+<div class="block">
     <strong>HYPOTHESIS (&sigma; unknown)</strong><br>
     1) Hypothesis (ex: H<sub>0</sub>: &mu;<sub>1</sub>=&mu;<sub>2</sub>)<br>
     2-a) T<sub>Test Statistic</sub> = <sup>(<span style="text-decoration: overline">X<sub>1</sub></span>-<span style="text-decoration: overline">X<sub>2</sub></span>)</sup>/<sub>S<sub>p</sub>*&radic;(<sup>1</sup>/<sub>n<sub>1</sub></sub>+<sup>1</sup>/<sub>n<sub>2</sub></sub>)</sub><br>
@@ -67,14 +77,14 @@
 </div>
 
 <!-- Linear Regression-->
-<div style="border: 1px solid black; padding:3px; margin:2px; display:inline-block; text-align: center;">
+<div class="block">
     <strong>LINEAR REGRESSION (&sigma; known)</strong><br>
     1) <br>
     2) <br>
     3) <br>
 </div>
 
-<div style="border: 1px solid black; padding:3px; margin:2px; display:inline-block; text-align: center;">
+<div class="block">
     <strong>Maximum Likelihood Function</strong><br>
     L(x) = &Pi; &fnof;<sub>X</sub>(x)<br>
     l(x) = ln L(x) = &sum; ln &fnof;<sub>X</sub>(x)<br>
