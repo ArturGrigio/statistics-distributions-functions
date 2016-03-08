@@ -85,6 +85,19 @@
 
   <!-- Linear Regression-->
   <div class="box">
+      <strong>LINEAR REGRESSION (general)</strong><br>
+      1) &beta;<sub>1</sub> = S<sub>XY</sub> / S<sub>XX</sub><br>
+      2) &beta;<sub>0</sub> = <span class="bar">Y</span> - &beta;<sub>1</sub>*<span class="bar">x</span><br>
+      3) passes through center if Y<sub>i</sub>(<span class="bar">x</span>)=<span class="bar">Y</span><br>
+      4) S<sub>XY</sub> = &sum; (x<sub>i</sub> - <span class="bar">x</span>)(Y<sub>i</sub> - <span class="bar">Y</span>)<br>
+      <b>note:</b> &sum; (x<sub>i</sub> - <span class="bar">x</span>) = 0<br>
+      &there4; S<sub>XY</sub> = &sum; (x<sub>i</sub> - <span class="bar">x</span>)*Y<sub>i</sub><br>
+      &there4; S<sub>XY</sub> = &sum; (Y<sub>i</sub> - <span class="bar">Y</span>)*x<sub>i</sub><br>
+      &there4; &sum; x<sub>i</sub><span class="bar">Y</span> = S<sub>XY</sub> - n*<span class="bar">x</span>*<span class="bar">Y</span>
+  </div>
+
+  <!-- Linear Regression-->
+  <div class="box">
       <strong>LINEAR REGRESSION (&sigma; known)</strong><br>
       1) <br>
       2) <br>
@@ -94,10 +107,8 @@
   <!-- Linear Regression-->
   <div class="box">
       <strong>LINEAR REGRESSION (&sigma; unknown)</strong><br>
-      1) &beta;<sub>1</sub> = S<sub>XY</sub> / S<sub>XX</sub><br>
-      2) &beta;<sub>0</sub> = <span class="bar">Y</span> - &beta;<sub>1</sub>*<span class="bar">x</span><br>
-      3) &sigma;<sup>2</sup> (est.) = (&sum;[Y<sub>i</sub> - <span class="bar">Y</span>]<sup>2</sup>) / n - 2<br>
-      4) T<sub>STAT</sub> = &beta; / &radic;(&sigma;<sup>2</sup> / S<sub>XX</sub>)
+      1) &sigma;<sup>2</sup> (est.) = (&sum;[Y<sub>i</sub> - <span class="bar">Y</span>]<sup>2</sup>) / n - 2<br>
+      2) T<sub>STAT</sub> = &beta; / &radic;(&sigma;<sup>2</sup> / S<sub>XX</sub>)
   </div>
 
   <div class="box">
