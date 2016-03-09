@@ -1,23 +1,25 @@
 % Preemble
 % ---
 
-\documentclass[10pt]{extarticle}
+\documentclass[8pt]{extarticle}
 
 % Packages
 % ---
 
 \usepackage{amsmath}
-\usepackage[margin=0.05in]{geometry}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{empheq}
 
 \begin{document}
 \section{Distributions}
 
 \begin{center}
-    \begin{tabular}{ | l || l | l | l | l || l | l | l | }
+    \begin{tabular}{ | l || l || l | l | l | l || l | l | l | }
     \hline
-    Distribution & Bernoulli & Binomial & Geometric & Poisson & Exponential & Uniform & Normal \\ \hline
+    Distribution & Moments & Bernoulli & Binomial & Geometric & Poisson & Exponential & Uniform & Normal \\ \hline
 
-    PDF & $\theta^x(1-\theta)^{1-x}$ 
+    PDF & 
+        & $\theta^x(1-\theta)^{1-x}$ 
         & $\binom{n}{k}\theta^k(1-\theta)^{n-k}$
         & $(1-\theta)^{x-1}\theta$ 
         & $\mathrm{e}^{-\lambda}\frac{\lambda^x}{x!}$
@@ -25,7 +27,8 @@
         & $\frac{1}{b-a}$ 
         & $\frac{1}{\sqrt{2\pi\sigma^2}}\mathrm{e}^{\frac{-(x-\mu)^2}{2\sigma^2}}$ \\ \hline
 
-    $\mathrm{E[X]}$ & $\theta$ 
+    $\mathrm{E[X]}$ & $\bar{X} = \frac{1}{n}\displaystyle\sum_{i=1}^{n} X_i$
+                    & $\theta$ 
                     & $n\theta$ 
                     & $\frac{1}{\theta}$ 
                     & $\lambda$ 
@@ -33,7 +36,8 @@
                     & $\frac{a+b}{2}$
                     & $\mu$ \\ \hline
 
-    $\mathrm{Var[X]}$ & $\theta(1-\theta)$
+    $\mathrm{Var[X]}$ & $E[X^2] = \frac{1}{n}\displaystyle\sum_{i=1}^{n} (X_i - \bar{X})^2$
+                      & $\theta(1-\theta)$
                       & $n\theta(1-\theta)$
                       & $\frac{1-\theta}{\theta^2}$ 
                       & $\lambda$
@@ -168,24 +172,37 @@
 \end{center}
 
 \section{Linear Regression Formulas}
-TODO: Organize all formulas into nicer looking table/format \\ \\
-$\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}$ \\ \\
-$\hat{\beta}_1 = \frac{S_{xy}}{S_{xx}}$ \\ \\
 
-$S_{xx}=\displaystyle\sum_{i=1}^{n} (x_i - \bar{x})^2$ \\ \\
-$S_{xy}=\displaystyle\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})$ \\ \\
-$SS_{RESID}=\displaystyle\sum_{i=1}^{n} (y_i - \hat{y})$ \\ \\
-Regression Variance: $s^2 = \frac{SS_{RESID}}{n-2}$ \\
+\fbox{
+     \addtolength{\linewidth}{-2\fboxsep}%
+      \addtolength{\linewidth}{-2\fboxrule}%
+       \begin{minipage}{\linewidth}
+             \begin{equation}
+                    \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x} \\ 
+                      \end{equation}
+                \begin{equation}
+                    \hat{\beta}_1 = \frac{S_{xy}}{S_{xx}} \\
+                      \end{equation}
+                \begin{equation}
+                    S_{xx}=\displaystyle\sum_{i=1}^{n} (x_i - \bar{x})^2\\
+                      \end{equation}
+                \begin{equation}
+                    S_{xy}=\displaystyle\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})\\
+                      \end{equation}
+                \begin{equation}
+                    SS_{RESID}=\displaystyle\sum_{i=1}^{n} (y_i - \hat{y})\\
+                      \end{equation}
+                \begin{equation}
+                    Regression Variance: s^2 = \frac{SS_{RESID}}{n-2} \\
+                      \end{equation}
+                \begin{equation}
+                    Normal Equations: \begin{Bmatrix}
+                                        \displaystyle\sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i) = 0 \\ 
+                                        \displaystyle\sum_{i=1}^{n} x_i(y_i - \beta_0 - \beta_1 x_i) = 0 \\ 
+                                        \end{Bmatrix}
+                      \end{equation}
 
-Normal Equations: $\begin{Bmatrix}
-                  \displaystyle\sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i) = 0 \\ 
-                  \displaystyle\sum_{i=1}^{n} x_i(y_i - \beta_0 - \beta_1 x_i) = 0 \\ 
-                  \end{Bmatrix}$
-
-
-
-
-
-
+                       \end{minipage}
+                   }
 \end{document}
 
