@@ -47,59 +47,142 @@
 \section{Hypothesis Testing}
 
 \begin{center}
-    \begin{tabular}{ | l | l | l | l | }
+    \begin{tabular}{ | l | l | l | l | l | l | }
         \hline
-        $\mathrm{H}_0$ & $\mathrm{H}_A$ & Test Statistic & Rejection Region \\ \hline
+        $\mathrm{H}_0$ & $\mathrm{H}_A$ & Conditions & Test Statistic & Rejection Region & Degrees of freedom \\ \hline
 
+        % ROW 1
+        % ---
         & $\mu_1<\mu_2$ 
         & 
-        & $\mathrm{Z}<-\mathrm{z}_\alpha$ \\
+        &
+        & $\mathrm{Z}<-\mathrm{z}_\alpha$ 
+        & \\ 
+        % ---
          
+        % ROW 2
+        % ---
         $\mu_1=\mu_2$ 
         & $\mu_1>\mu_2$ 
-        & $\mathrm{Z}=\frac{(X_1-X_2)-(\mu_1-\mu_2)}{\sqrt{\sigma_1^{2}/n_1+\sigma_2^{2}/n_2}}$ 
-        & $\mathrm{Z}>\mathrm{z}_\alpha$ \\
+        & Known $\sigma$
+        & $\mathrm{Z}=\frac{(\bar{X}_1-\bar{X}_2)-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^{2}}{n_1}+\frac{\sigma_2^{2}}{n_2}}}$ 
+        & $\mathrm{Z}>\mathrm{z}_\alpha$ 
+        & \\
+        % ---
 
+        % ROW 3
+        % ---
         & $\mu_1\ne\mu_2$
-        & (known $\sigma$)
-        & $\mathrm{|Z|}>\mathrm{|z_{\alpha/2}|}$ \\ \hline\hline
+        & 
+        &
+        & $\mathrm{|Z|}>\mathrm{|z_{\alpha/2}|}$ 
+        & \\ \hline\hline
+        % ---
 
+        % ROW 4
+        % ---
         & $\mu_1<\mu_2$ 
         & 
-        & $\mathrm{t}<-\mathrm{t}_\alpha$ \\
+        &
+        & $\mathrm{t}<-\mathrm{t}_{df,\alpha}$ 
+        & \\
          
+        % ROW 5
+        % ---
         $\mu_1=\mu_2$ 
         & $\mu_1>\mu_2$ 
-        & $\mathrm{t}=\frac{(X_1-X_2)-(\mu_1-\mu_2)}{\sqrt{s_1^{2}/n_1+s_2^{2}/n_2}}$ 
-        & $\mathrm{t}>\mathrm{t}_\alpha$ \\
+        & Unknown but equal $\sigma$
+        & $\mathrm{t}=\frac{(\bar{X}_1-\bar{X}_2)-(\mu_1-\mu_2)}{\sqrt{{s_p}^2(\frac{1}{n_1}+\frac{1}{n_2})}}$ 
+        & $\mathrm{t}>\mathrm{t}_{df,\alpha}$ 
+        & $\mathrm{df}={n_1+n_2-2}$ \\
+        % ---
 
+        % ROW 6
+        % --
         & $\mu_1\ne\mu_2$
-        & (unknown $\sigma$)
-        & $\mathrm{|t|}>\mathrm{|t_{n-1,\alpha/2}|}$ \\ \hline\hline
+        & 
+        &
+        & $\mathrm{|t|}>\mathrm{|t}_{df,\alpha/2}|$ 
+        & \\ \hline\hline
+        % --
 
+        % ROW 7
+        % ---
         & $\pi_1<\pi_2$ 
+        &
         & 
-        & $\mathrm{Z}<-\mathrm{z}_\alpha$ \\
+        & $\mathrm{Z}<-\mathrm{z}_\alpha$ 
+        & \\
+        % ---
          
+        % ROW 8
+        % ---
         $\pi_1=\pi_2$ 
         & $\pi_1>\pi_2$ 
-        &
-        $\mathrm{Z}=\frac{(\hat{\pi}_1-\hat{\pi}_2)-(\pi_1-\pi_2)}{\sqrt{\frac{\pi_{1}(1-\pi_1)}{n_1}+\frac{\pi_{2}(1-\pi_2)}{n_2}}}$ 
-        & $\mathrm{Z}>\mathrm{z}_\alpha$ \\
+        & Z-test for proportions
+        & $\mathrm{Z}=\frac{(\hat{\pi}_1-\hat{\pi}_2)-(\pi_1-\pi_2)}
+        {\sqrt{\frac{\hat{\pi}_{1}(1-\hat{\pi}_1)}{n_1}+\frac{\hat{\pi}_{2}(1-\hat{\pi}_2)}{n_2}}}$ 
+        & $\mathrm{Z}>\mathrm{z}_\alpha$ 
+        & \\
+        % ---
 
+        % ROW 9
+        % ---
         & $\pi_1\ne\pi_2$
+        &
         & 
-        & $\mathrm{|Z|}>\mathrm{|z_{\alpha/2}|}$ \\ \hline
+        & $\mathrm{|Z|}>\mathrm{|z_{\alpha/2}|}$ 
+        & \\ \hline\hline
 
+        % ROW 10
+        % ---
+        &
+        &
+        &
+        &
+        & \\
+        % ---
 
+        % ROW 11
+        % ---
+        $\beta_1=0$
+        & $\beta_1\ne0$
+        & Test for linear relationship
+        & $\mathrm{t}=\frac{\hat{\beta}_1-\beta_1}{\sqrt{\frac{s^2}{S_{xx}}}}$
+        & $\mathrm{t}>\mathrm{|t}_{df,\alpha/2}|$ 
+        & $\mathrm{df}={n-2}$ \\ 
+        % ---
 
-
-
-
-
+        % ROW 12
+        % ---
+        &
+        &
+        &
+        &
+        & \\ \hline
+        % ---
 
     \end{tabular}
 \end{center}
+
+\section{Linear Regression Formulas}
+TODO: Organize all formulas into nicer looking table/format \\ \\
+$\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}$ \\ \\
+$\hat{\beta}_1 = \frac{S_{xy}}{S_{xx}}$ \\ \\
+
+$S_{xx}=\displaystyle\sum_{i=1}^{n} (x_i - \bar{x})^2$ \\ \\
+$S_{xy}=\displaystyle\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})$ \\ \\
+$SS_{RESID}=\displaystyle\sum_{i=1}^{n} (y_i - \hat{y})$ \\ \\
+Regression Variance: $s^2 = \frac{SS_{RESID}}{n-2}$ \\
+
+Normal Equations: $\begin{Bmatrix}
+                  \displaystyle\sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i) = 0 \\ 
+                  \displaystyle\sum_{i=1}^{n} x_i(y_i - \beta_0 - \beta_1 x_i) = 0 \\ 
+                  \end{Bmatrix}$
+
+
+
+
 
 
 \end{document}
