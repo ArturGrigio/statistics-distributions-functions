@@ -7,6 +7,7 @@
 % ---
 
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage[margin=0.5in]{geometry}
 \usepackage{empheq}
 \usepackage{pgfplots}
@@ -88,12 +89,12 @@
                 P (Z \leq \frac{q_0.975 - 80}{3}) = 0.975 \\
             \end{equation}
             \begin{equation}
-                \frac{q_0.975 − 80}{3} = 1.96 \\
+                \frac{q_0.975 - 80}{3} = 1.96 \\
             \end{equation}
             \begin{equation}
                 q_0.975 \approx 85.88\\
             \end{equation}
-            \text{So it does not fall within percentile if $x_Q < q_0.975$}
+            \text{So $x_Q$ does not fall within percentile if $x_Q < q_0.975$}
         \end{minipage}
 }
 
@@ -147,7 +148,7 @@ the weight requirement?}
         \end{minipage}
 }
 
-\section{Lifetimes; $X \sim Exponential(\lambda_X=1000), Y \sim Exponential(\lambda_X=1200)$ }
+\section{Lifetimes; $X \sim Exponential(\lambda_X=1000), Y \sim Exponential(\lambda_Y=1200)$ }
 \fbox{
     \addtolength{\linewidth}{-2\fboxsep}%
     \addtolength{\linewidth}{-2\fboxrule}%
@@ -169,6 +170,37 @@ the weight requirement?}
         \text{What is the proportion of devices manufactured by Company-X that gives lifetimes between 400 and 1600 hours?}
         \begin{equation}
             P(400 \leq X \leq 1600) = F_X(X=1600) - F_X(X=400) = e^{\frac{-400}{1000}} - e^{\frac{-1600}{1000}} \approx .468
+        \end{equation}
+        \text{Given Company-X makes 0.45/Company-Y makes 0.55 of devices. A device tested passed the minimum standard. Guess which company made that device. Justify.}
+        \begin{equation}
+            T = \text{device that passed}
+        \end{equation}
+        \begin{equation}
+            C_X = \text{device produced by company X}\\
+        \end{equation}
+        \begin{equation}
+            C_Y = \text{device produced by company Y}\\
+        \end{equation}
+        \begin{equation}
+            P(C_X) = .45
+        \end{equation}
+        \begin{equation}
+            P(C_Y) = .55
+        \end{equation}
+        \begin{equation}
+            P(T|C_X) = P(X \geq 400) = .67
+        \end{equation}
+        \begin{equation}
+            P(T|C_Y) = P(Y \geq 400) = .717
+        \end{equation}
+        \begin{equation}
+            P(T) = P(T|C_X) \times p(C_X) + P(T|C_Y) \times P(C_Y) = (.67)(.45) + (.717)(.55) = .696
+        \end{equation}
+        \begin{equation}
+            P(C_X|T) = \frac{P(T|C_X)P(C_X)}{P(T)} = \frac{(.67)(.45)}{.696} = .433
+        \end{equation}
+        \begin{equation}
+            P(C_Y|T) = 1 - P(C_X|T) = 1 - .433 = .567 \therefore \text{the device was probably made by Company Y}
         \end{equation}
     \end{minipage}
 }
