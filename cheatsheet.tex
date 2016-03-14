@@ -9,6 +9,7 @@
 \usepackage{amsmath}
 \usepackage[margin=0.5in]{geometry}
 \usepackage{empheq}
+\usepackage{pgfplots}
 
 \begin{document}
 
@@ -24,6 +25,45 @@
     \end{tabular}
 \end{center}
 
+\pgfmathdeclarefunction{gauss}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+}
+
+\section{Percentiles; Q = Normal(\mu_Q=80, \sigma^2_Q=9); percentile = 97.5}
+
+\fbox{
+     \addtolength{\linewidth}{-2\fboxsep}%
+      \addtolength{\linewidth}{-2\fboxrule}%
+       \begin{minipage}{\linewidth}
+            \begin{equation}
+                P(Q \leq q_0.975) = 0.975  \\
+            \end{equation}
+            \begin{equation}
+                \begin{tikzpicture}
+                    \begin{axis}[every axis plot post/.append style={
+                        mark=none,domain=65:90,samples=50,smooth},
+                        axis x line*=bottom,
+                        axis y line*=left,
+                        enlargelimits=upper]
+                        \addplot {gauss(80,3)};
+                    \end{axis}
+                \end{tikzpicture}
+            \end{equation}
+            \begin{equation}
+                P (Z \leq \frac{q_0.975 - 80}{3}) = 0.975 \\
+            \end{equation}
+            \begin{equation}
+                \frac{q_0.975 − 80}{3} = 1.96 \\
+            \end{equation}
+            \begin{equation}
+                q_0.975 \approx 85.88\\
+            \end{equation}
+            \begin{equation}
+                So if {x}_Q < {q}_0.975 it does not fall within percentile\\
+            \end{equation}
+        \end{minipage}
+                   }
+
 \section{Distributions}
 
 \begin{center}
@@ -31,28 +71,28 @@
     \hline
     Distribution & Moments & Bernoulli & Binomial & Geometric & Poisson & Exponential & Uniform & Normal \\ \hline
 
-    PDF & 
-        & $p^x(1-p)^{1-x}$ 
+    PDF &
+        & $p^x(1-p)^{1-x}$
         & $\binom{n}{x}p^x(1-p)^{n-x}$
-        & $(1-p)^{x-1}p$ 
+        & $(1-p)^{x-1}p$
         & $\mathrm{e}^{-\lambda}\frac{\lambda^x}{x!}$
-        & $\frac{1}{\lambda}\mathrm{e}^{\frac{-x}{\lambda}}$ 
-        & $\frac{1}{b-a}$ 
+        & $\frac{1}{\lambda}\mathrm{e}^{\frac{-x}{\lambda}}$
+        & $\frac{1}{b-a}$
         & $\frac{1}{\sqrt{2\pi\sigma^2}}\mathrm{e}^{\frac{-(x-\mu)^2}{2\sigma^2}}$ \\ \hline
 
     $\mathrm{E[X]}$ & $\bar{X} = \frac{1}{n}\displaystyle\sum_{i=1}^{n} X_i$
-                    & $p$ 
-                    & $np$ 
-                    & $\frac{1}{p}$ 
-                    & $\lambda$ 
-                    & $\lambda$ 
+                    & $p$
+                    & $np$
+                    & $\frac{1}{p}$
+                    & $\lambda$
+                    & $\lambda$
                     & $\frac{a+b}{2}$
                     & $\mu$ \\ \hline
 
     $\mathrm{Var[X]}$ & $E[X^2] = \frac{1}{n}\displaystyle\sum_{i=1}^{n} (X_i - \bar{X})^2$
                       & $p(1-p)$
                       & $np(1-p)$
-                      & $\frac{1-p}{p^2}$ 
+                      & $\frac{1-p}{p^2}$
                       & $\lambda$
                       & $\lambda^2$
                       & $\frac{(b-a)^2}{12}$
@@ -70,47 +110,47 @@
 
         % ROW 1
         % ---
-        & $\mu_1<\mu_2$ 
-        & 
+        & $\mu_1<\mu_2$
         &
-        & $\mathrm{Z}<-\mathrm{z}_\alpha$ 
-        & \\ 
+        &
+        & $\mathrm{Z}<-\mathrm{z}_\alpha$
+        & \\
         % ---
-         
+
         % ROW 2
         % ---
-        $\mu_1=\mu_2$ 
-        & $\mu_1>\mu_2$ 
+        $\mu_1=\mu_2$
+        & $\mu_1>\mu_2$
         & Known $\sigma$
-        & $\mathrm{Z}=\frac{(\bar{X}_1-\bar{X}_2)-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^{2}}{n_1}+\frac{\sigma_2^{2}}{n_2}}}$ 
-        & $\mathrm{Z}>\mathrm{z}_\alpha$ 
+        & $\mathrm{Z}=\frac{(\bar{X}_1-\bar{X}_2)-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^{2}}{n_1}+\frac{\sigma_2^{2}}{n_2}}}$
+        & $\mathrm{Z}>\mathrm{z}_\alpha$
         & \\
         % ---
 
         % ROW 3
         % ---
         & $\mu_1\ne\mu_2$
-        & 
         &
-        & $\mathrm{|Z|}>\mathrm{|z_{\alpha/2}|}$ 
+        &
+        & $\mathrm{|Z|}>\mathrm{|z_{\alpha/2}|}$
         & \\ \hline\hline
         % ---
 
         % ROW 4
         % ---
-        & $\mu_1<\mu_2$ 
-        & Unknown but equal $\sigma$ 
+        & $\mu_1<\mu_2$
+        & Unknown but equal $\sigma$
         &
-        & $\mathrm{t}<-\mathrm{t}_{df,\alpha}$ 
+        & $\mathrm{t}<-\mathrm{t}_{df,\alpha}$
         & \\
-         
+
         % ROW 5
         % ---
-        $\mu_1=\mu_2$ 
-        & $\mu_1>\mu_2$ 
-        & $s^2 = \frac{1}{n-1}\displaystyle\sum_{i=1}^{n} (x_i - \bar{x})^2$ 
-        & $\mathrm{t}=\frac{(\bar{X}_1-\bar{X}_2)-(\mu_1-\mu_2)}{\sqrt{{s_p}^2(\frac{1}{n_1}+\frac{1}{n_2})}}$ 
-        & $\mathrm{t}>\mathrm{t}_{df,\alpha}$ 
+        $\mu_1=\mu_2$
+        & $\mu_1>\mu_2$
+        & $s^2 = \frac{1}{n-1}\displaystyle\sum_{i=1}^{n} (x_i - \bar{x})^2$
+        & $\mathrm{t}=\frac{(\bar{X}_1-\bar{X}_2)-(\mu_1-\mu_2)}{\sqrt{{s_p}^2(\frac{1}{n_1}+\frac{1}{n_2})}}$
+        & $\mathrm{t}>\mathrm{t}_{df,\alpha}$
         & $\mathrm{df}={n_1+n_2-2}$ \\
         % ---
 
@@ -119,27 +159,27 @@
         & $\mu_1\ne\mu_2$
         & $s^2_p = \frac{(n_1-1)s^2_1 + (n_2-1)s^2_2}{n_1 + n_2 - 2}$
         &
-        & $\mathrm{|t|}>\mathrm{|t}_{df,\alpha/2}|$ 
+        & $\mathrm{|t|}>\mathrm{|t}_{df,\alpha/2}|$
         & \\ \hline\hline
         % --
 
         % ROW 7
         % ---
-        & $\pi_1<\pi_2$ 
+        & $\pi_1<\pi_2$
         &
-        & 
-        & $\mathrm{Z}<-\mathrm{z}_\alpha$ 
+        &
+        & $\mathrm{Z}<-\mathrm{z}_\alpha$
         & \\
         % ---
-         
+
         % ROW 8
         % ---
-        $\pi_1=\pi_2$ 
-        & $\pi_1>\pi_2$ 
+        $\pi_1=\pi_2$
+        & $\pi_1>\pi_2$
         & Z-test for proportions
         & $\mathrm{Z}=\frac{(\hat{\pi}_1-\hat{\pi}_2)-(\pi_1-\pi_2)}
-        {\sqrt{\frac{\hat{\pi}_{1}(1-\hat{\pi}_1)}{n_1}+\frac{\hat{\pi}_{2}(1-\hat{\pi}_2)}{n_2}}}$ 
-        & $\mathrm{Z}>\mathrm{z}_\alpha$ 
+        {\sqrt{\frac{\hat{\pi}_{1}(1-\hat{\pi}_1)}{n_1}+\frac{\hat{\pi}_{2}(1-\hat{\pi}_2)}{n_2}}}$
+        & $\mathrm{Z}>\mathrm{z}_\alpha$
         & \\
         % ---
 
@@ -147,8 +187,8 @@
         % ---
         & $\pi_1\ne\pi_2$
         &
-        & 
-        & $\mathrm{|Z|}>\mathrm{|z_{\alpha/2}|}$ 
+        &
+        & $\mathrm{|Z|}>\mathrm{|z_{\alpha/2}|}$
         & \\ \hline\hline
 
         % ROW 10
@@ -166,8 +206,8 @@
         & $\beta_1\ne0$
         & Test for linear relationship
         & $\mathrm{t}=\frac{\hat{\beta}_1-\beta_1}{\sqrt{\frac{s^2}{S_{xx}}}}$
-        & $\mathrm{t}>\mathrm{|t}_{df,\alpha/2}|$ 
-        & $\mathrm{df}={n-2}$ \\ 
+        & $\mathrm{t}>\mathrm{|t}_{df,\alpha/2}|$
+        & $\mathrm{df}={n-2}$ \\
         % ---
 
         % ROW 12
@@ -189,7 +229,7 @@
       \addtolength{\linewidth}{-2\fboxrule}%
        \begin{minipage}{\linewidth}
              \begin{equation}
-                    \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x} \\ 
+                    \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x} \\
                       \end{equation}
                 \begin{equation}
                     \hat{\beta}_1 = \frac{S_{xy}}{S_{xx}} \\
@@ -208,12 +248,11 @@
                       \end{equation}
                 \begin{equation}
                     Normal Equations: \begin{Bmatrix}
-                                        \displaystyle\sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i) = 0 \\ 
-                                        \displaystyle\sum_{i=1}^{n} x_i(y_i - \beta_0 - \beta_1 x_i) = 0 \\ 
+                                        \displaystyle\sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i) = 0 \\
+                                        \displaystyle\sum_{i=1}^{n} x_i(y_i - \beta_0 - \beta_1 x_i) = 0 \\
                                         \end{Bmatrix}
                       \end{equation}
 
                        \end{minipage}
                    }
 \end{document}
-
