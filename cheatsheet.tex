@@ -75,17 +75,6 @@
                 P(Q \leq q_0.975) = 0.975  \\
             \end{equation}
             \begin{equation}
-                \begin{tikzpicture}
-                    \begin{axis}[every axis plot post/.append style={
-                        mark=none,domain=65:90,samples=50,smooth},
-                        axis x line*=bottom,
-                        axis y line*=left,
-                        enlargelimits=upper]
-                        \addplot {gauss(80,3)};
-                    \end{axis}
-                \end{tikzpicture}
-            \end{equation}
-            \begin{equation}
                 P (Z \leq \frac{q_0.975 - 80}{3}) = 0.975 \\
             \end{equation}
             \begin{equation}
@@ -98,112 +87,6 @@
         \end{minipage}
 }
 
-\section{Proportion within range; $X \sim Normal(\mu_Q=1000, \sigma^2_Q=625); n=10$}
-\fbox{
-     \addtolength{\linewidth}{-2\fboxsep}%
-      \addtolength{\linewidth}{-2\fboxrule}%
-       \begin{minipage}{\linewidth}
-            \text{What proportion of bricks weigh between 950 to 1050 grams?}
-            \begin{equation}
-                {P}(950 \leq X \leq 1050) = P(\frac{950 - 1000}{25} \leq Z \leq \frac{1050 - 1000}{25}) = P(-2 \leq Z \leq 2) = P(Z \leq 2) - P(Z \geq -2) = .97725 - .0228 \approx .95
-            \end{equation}
-            \text{what is the probability that all of them pass
-the weight requirement?}
-            \begin{equation}
-                Y_i = \begin{cases}
-                    1 & 950 \leq X_i \leq 1050 \\
-                    0 & \text{otherwise}
-                \end{cases}
-            \end{equation}
-            \begin{equation}
-                P(Y_i = 1) = P(950 \leq X_i \leq 1050) = .95
-            \end{equation}
-            \begin{equation}
-                \text{let } Y_i = Y_1 + ... + Y_10 = \text{bricks that meet requirement}
-            \end{equation}
-            \begin{equation}
-                P(Y = 10) = (.95)^{10}
-            \end{equation}
-            \text{What is the probability that exactly 9 out of 10 meet the requirement?}
-            \begin{equation}
-                P(Y = 9) = {10 \choose 9}\times(.95)^9\times(1-.95)^{10-9}
-            \end{equation}
-            \text{What is the probability that at least one fails the requirement?}
-            \begin{equation}
-                P(Y < 10) = 1 - P(Y = 10) = 1 - (.95)^{10}
-            \end{equation}
-            \text{ Suppose it is known that there was exactly one failure. What is the probability that the failure was due to brick number 1?}
-            \begin{equation}
-                n = 10 \iff answer = \frac{1}{10}
-            \end{equation}
-            \text{if testing was done sequentially, What is the probability that the first failure is incurred by the fourth brick
-            tested?}
-            \begin{equation}
-                P(Y_1=1, Y_2=1, Y_3=1, Y_4=0) = P(Y_1=1)\times...\times P(Y_4=0) = (.95)^3\times(.05)
-            \end{equation}
-            \text{What is the probability that the second failure occurs on the 10-th brick. Hint: exactly one failure in first 9 bricks and the 10-th brick is failure.}
-            \begin{equation}
-                P(\{\text{one failure in 9 bricks}\} \cap \{Y_{10} = 0\}) = ({9 \choose 1} \times (.95)^8 \times .05) \times .05 = 9 \times .95^8 \times .05^2
-            \end{equation}
-        \end{minipage}
-}
-
-\section{Lifetimes; $X \sim Exponential(\lambda_X=1000), Y \sim Exponential(\lambda_Y=1200)$ }
-\fbox{
-    \addtolength{\linewidth}{-2\fboxsep}%
-    \addtolength{\linewidth}{-2\fboxrule}%
-    \begin{minipage}{\linewidth}
-        \text{Given industry standard is $\lambda=400$ derive CDF}
-        \begin{equation}
-        F_X(x) = \int_{0}^{x} f_X(x) dx
-        = \int_{0}^{x} \frac{e^{\frac{-t}{\lambda_X}}}{\lambda_X} dt
-        = -e^{\frac{-t}{\lambda_X}}\Big|_{0}^{x}
-        \end{equation}
-        \text{What is the proportion of devices produced by Company-X that meets that minimum standard?}
-        \begin{equation}
-            P(X \geq 400) = 1 - F_X(X = 400) = e^{\frac{-400}{1000}} \approx .67
-        \end{equation}
-        \text{What is the proportion of devices produced by Company-Y that meets that minimum standard?}
-        \begin{equation}
-            P(Y \geq 400) = 1 - F_Y(X = 400) = e^{\frac{-400}{1200}} \approx .717
-        \end{equation}
-        \text{What is the proportion of devices manufactured by Company-X that gives lifetimes between 400 and 1600 hours?}
-        \begin{equation}
-            P(400 \leq X \leq 1600) = F_X(X=1600) - F_X(X=400) = e^{\frac{-400}{1000}} - e^{\frac{-1600}{1000}} \approx .468
-        \end{equation}
-        \text{Given Company-X makes 0.45/Company-Y makes 0.55 of devices. A device tested passed the minimum standard. Guess which company made that device. Justify.}
-        \begin{equation}
-            T = \text{device that passed}
-        \end{equation}
-        \begin{equation}
-            C_X = \text{device produced by company X}\\
-        \end{equation}
-        \begin{equation}
-            C_Y = \text{device produced by company Y}\\
-        \end{equation}
-        \begin{equation}
-            P(C_X) = .45
-        \end{equation}
-        \begin{equation}
-            P(C_Y) = .55
-        \end{equation}
-        \begin{equation}
-            P(T|C_X) = P(X \geq 400) = .67
-        \end{equation}
-        \begin{equation}
-            P(T|C_Y) = P(Y \geq 400) = .717
-        \end{equation}
-        \begin{equation}
-            P(T) = P(T|C_X) \times p(C_X) + P(T|C_Y) \times P(C_Y) = (.67)(.45) + (.717)(.55) = .696
-        \end{equation}
-        \begin{equation}
-            P(C_X|T) = \frac{P(T|C_X)P(C_X)}{P(T)} = \frac{(.67)(.45)}{.696} = .433
-        \end{equation}
-        \begin{equation}
-            P(C_Y|T) = 1 - P(C_X|T) = 1 - .433 = .567 \therefore \text{the device was probably made by Company Y}
-        \end{equation}
-    \end{minipage}
-}
 
 \section{Hypothesis Testing}
 
@@ -350,13 +233,115 @@ the weight requirement?}
                 \begin{equation}
                     Regression Variance: s^2 = \frac{SS_{RESID}}{n-2} \\
                       \end{equation}
-                \begin{equation}
-                    Normal Equations: \begin{Bmatrix}
-                                        \displaystyle\sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i) = 0 \\
-                                        \displaystyle\sum_{i=1}^{n} x_i(y_i - \beta_0 - \beta_1 x_i) = 0 \\
-                                        \end{Bmatrix}
-                      \end{equation}
-
                        \end{minipage}
                    }
+
+\section{Proportion within range; $X \sim Normal(\mu_Q=1000, \sigma^2_Q=625); n=10$}
+\fbox{
+     \addtolength{\linewidth}{-2\fboxsep}%
+      \addtolength{\linewidth}{-2\fboxrule}%
+       \begin{minipage}{\linewidth}
+            \text{What proportion of bricks weigh between 950 to 1050 grams?}
+            \begin{equation}
+                {P}(950 \leq X \leq 1050) = P(\frac{950 - 1000}{25} \leq Z \leq \frac{1050 - 1000}{25}) = P(-2 \leq Z \leq 2) = P(Z \leq 2) - P(Z \geq -2) = .97725 - .0228 \approx .95
+            \end{equation}
+            \text{what is the probability that all of them pass
+the weight requirement?}
+            \begin{equation}
+                Y_i = \begin{cases}
+                    1 & 950 \leq X_i \leq 1050 \\
+                    0 & \text{otherwise}
+                \end{cases}
+            \end{equation}
+            \begin{equation}
+                P(Y_i = 1) = P(950 \leq X_i \leq 1050) = .95
+            \end{equation}
+            \begin{equation}
+                \text{let } Y_i = Y_1 + ... + Y_10 = \text{bricks that meet requirement}
+            \end{equation}
+            \begin{equation}
+                P(Y = 10) = (.95)^{10}
+            \end{equation}
+            \text{What is the probability that exactly 9 out of 10 meet the requirement?}
+            \begin{equation}
+                P(Y = 9) = {10 \choose 9}\times(.95)^9\times(1-.95)^{10-9}
+            \end{equation}
+            \text{What is the probability that at least one fails the requirement?}
+            \begin{equation}
+                P(Y < 10) = 1 - P(Y = 10) = 1 - (.95)^{10}
+            \end{equation}
+            \text{ Suppose it is known that there was exactly one failure. What is the probability that the failure was due to brick number 1?}
+            \begin{equation}
+                n = 10 \iff answer = \frac{1}{10}
+            \end{equation}
+            \text{if testing was done sequentially, What is the probability that the first failure is incurred by the fourth brick
+            tested?}
+            \begin{equation}
+                P(Y_1=1, Y_2=1, Y_3=1, Y_4=0) = P(Y_1=1)\times...\times P(Y_4=0) = (.95)^3\times(.05)
+            \end{equation}
+            \text{What is the probability that the second failure occurs on the 10-th brick. Hint: exactly one failure in first 9 bricks and the 10-th brick is failure.}
+            \begin{equation}
+                P(\{\text{one failure in 9 bricks}\} \cap \{Y_{10} = 0\}) = ({9 \choose 1} \times (.95)^8 \times .05) \times .05 = 9 \times .95^8 \times .05^2
+            \end{equation}
+        \end{minipage}
+}
+
+\section{Lifetimes; $X \sim Exponential(\lambda_X=1000), Y \sim Exponential(\lambda_Y=1200)$ }
+\fbox{
+    \addtolength{\linewidth}{-2\fboxsep}%
+    \addtolength{\linewidth}{-2\fboxrule}%
+    \begin{minipage}{\linewidth}
+        \text{Given industry standard is $\lambda=400$ derive CDF}
+        \begin{equation}
+        F_X(x) = \int_{0}^{x} f_X(x) dx
+        = \int_{0}^{x} \frac{e^{\frac{-t}{\lambda_X}}}{\lambda_X} dt
+        = -e^{\frac{-t}{\lambda_X}}\Big|_{0}^{x}
+        \end{equation}
+        \text{What is the proportion of devices produced by Company-X that meets that minimum standard?}
+        \begin{equation}
+            P(X \geq 400) = 1 - F_X(X = 400) = e^{\frac{-400}{1000}} \approx .67
+        \end{equation}
+        \text{What is the proportion of devices produced by Company-Y that meets that minimum standard?}
+        \begin{equation}
+            P(Y \geq 400) = 1 - F_Y(X = 400) = e^{\frac{-400}{1200}} \approx .717
+        \end{equation}
+        \text{What is the proportion of devices manufactured by Company-X that gives lifetimes between 400 and 1600 hours?}
+        \begin{equation}
+            P(400 \leq X \leq 1600) = F_X(X=1600) - F_X(X=400) = e^{\frac{-400}{1000}} - e^{\frac{-1600}{1000}} \approx .468
+        \end{equation}
+        \text{Given Company-X makes 0.45/Company-Y makes 0.55 of devices. A device tested passed the minimum standard. Guess which company made that device. Justify.}
+        \begin{equation}
+            T = \text{device that passed}
+        \end{equation}
+        \begin{equation}
+            C_X = \text{device produced by company X}\\
+        \end{equation}
+        \begin{equation}
+            C_Y = \text{device produced by company Y}\\
+        \end{equation}
+        \begin{equation}
+            P(C_X) = .45
+        \end{equation}
+        \begin{equation}
+            P(C_Y) = .55
+        \end{equation}
+        \begin{equation}
+            P(T|C_X) = P(X \geq 400) = .67
+        \end{equation}
+        \begin{equation}
+            P(T|C_Y) = P(Y \geq 400) = .717
+        \end{equation}
+        \begin{equation}
+            P(T) = P(T|C_X) \times p(C_X) + P(T|C_Y) \times P(C_Y) = (.67)(.45) + (.717)(.55) = .696
+        \end{equation}
+        \begin{equation}
+            P(C_X|T) = \frac{P(T|C_X)P(C_X)}{P(T)} = \frac{(.67)(.45)}{.696} = .433
+        \end{equation}
+        \begin{equation}
+            P(C_Y|T) = 1 - P(C_X|T) = 1 - .433 = .567 \therefore \text{the device was probably made by Company Y}
+        \end{equation}
+    \end{minipage}
+}
+
+
 \end{document}
