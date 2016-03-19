@@ -1,6 +1,6 @@
 #STATS Cheat-Sheet
 
-This is a cheat sheet for the major distribution types in Statistics. It also includes Hypothesis definitions, formulas, and linear regression.
+This is a cheat sheet for the major distribution types in Statistics. It also includes Hypothesis definitions, formulas, linear regression, T-table, and Z-table.
 
 - Click [here](https://github.com/ArturGrigio/statistics-distributions-functions/blob/master/cheatsheet.pdf) to vie thew PDF of the cheat sheet 
 
